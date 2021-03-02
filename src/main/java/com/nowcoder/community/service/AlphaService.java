@@ -15,6 +15,13 @@ import javax.annotation.PreDestroy;
 // @Scope("prototype")加上这个注解后，每次getBean会创建新的实例
 public class AlphaService {
 
+    // 业务中使用 DI
+    @Autowired
+    private AlphaDao alphaDao;
+    public String find() {
+        return alphaDao.select();
+    }
+
     // 构造器
     public AlphaService() {
         System.out.println("实例化 AlphaService");
