@@ -34,7 +34,7 @@ class CommunityApplicationTests implements ApplicationContextAware {
 		// 测试打印Spring容器
 		System.out.println(applicationContext);
 		// 获取容器的bean
-		// 获取bean时提供AlphaDao接口，而不是具体哪个bean，体现了面向接口编程的思想。在获取bean时，即是接口下有若干实现类，
+		// 获取bean时提供AlphaDao接口，而不是具体哪个bean，体现了面向接口编程的思想。在获取bean时，即使接口下有若干实现类，
 		// 我只需给想要获取的bean设置一个@Primary ，而不需要在这里做任何更改。这也降低了bean之间的耦合度。
 		AlphaDao alphaDao = applicationContext.getBean(AlphaDao.class);
 		System.out.println(alphaDao.select());
@@ -57,6 +57,7 @@ class CommunityApplicationTests implements ApplicationContextAware {
 
 	}
 
+	// 使用自定义配置类去get他人封装好的bean
 	@Test
 	public void testBeanConfig() {
 		SimpleDateFormat simpleDateFormat = applicationContext.getBean(SimpleDateFormat.class);
